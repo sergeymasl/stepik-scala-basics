@@ -36,8 +36,25 @@ object ObjectOOP extends App{
 
 
   //========================================компаньоны=====================================
-  //
+  // если в одном и том же файле объявить ОБЪЕКТ и КЛАСС с одним и тем же именем, то их можно назвать КОМПАНЬОНАМИ
+  // ОБЪЕКТ в таком случае имеет доступ ко всем полям и методам своего класса-компаньона (даже к private)
 
+  class MyString(val someString: String) {
+    private var extra : String = "extraData"
+    def getString : String = someString ++ extra
+  }
+
+  object MyString { // назван так же как и класс
+    def apply(base : String, extras : String) : MyString = {
+      val s = new MyString(base)
+      s.extra = extras // доступ к private val класса MyString, её изменение
+      s
+    }
+    def apply(base : String) = new MyString(base)
+  }
+
+  println(MyString.apply("hello", "world").getString) // пойдет через apply со сменой val extra на "world"
+  println(MyString.apply("welcome ").getString) // пойдет через apply без смены val extra
 
 }
 
