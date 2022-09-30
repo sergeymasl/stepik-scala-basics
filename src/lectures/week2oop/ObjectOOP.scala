@@ -56,5 +56,27 @@ object ObjectOOP extends App{
   println(MyString.apply("hello", "world").getString) // пойдет через apply со сменой val extra на "world"
   println(MyString.apply("welcome ").getString) // пойдет через apply без смены val extra
 
+  // ===================================фабричный метод=====================================
+  // хрен его знает зачем это нужно, может быть для усложненного создания класса
+  // например если одно значение, то этот класс. Если другое, то другой класс
+  // вот один из примеров: (хрен его знает зачем)
+
+  class NumberV(val num: Int)
+
+  object NumberV {
+    val Pi = 3.14
+
+    def apply(x: NumberV, y: NumberV): NumberV = new NumberV(x.num + y.num)
+  }
+
+  val numA = new NumberV(1)
+  val numB = new NumberV(2)
+
+  val numC = NumberV(numA, numB) // применяем apply
+
+  println(numA.num) // 1
+  println(numB.num) // 2
+  println(numC.num) // 3
+
 }
 
