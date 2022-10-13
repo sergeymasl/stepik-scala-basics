@@ -70,6 +70,40 @@ object Generics extends App {
   //class Parking[T >: Bicycle <: Vehicle]
 
 
+  //======================================вариативность (variance problem)=========================================
+
+  // разбираться будем на родительском классе Fruit и дочерними классами Aplle и Banana
+  class Fruit
+  class Apple extends Fruit
+  class Banana extends Fruit
+
+  //------------------Инвариантность(Invariance)
+  // инвариантность диктует, что List[Apple] и List[Fruit] это соверщенно разные вещи не связанные никакими
+  // родственными связями. Тип в скобках без каких-либо дополнительных знаков, свидетельствует об
+  // инвариантности
+  class InvariantList[A]
+  val invariantFruitList : InvariantList[Fruit] = new InvariantList[Fruit]
+  // т.е. тип указанный слева должен совпадать с типом в правой части
+
+
+
+  //------------------Контрвариантность(Contravariance)
+  // Контрвариантность предполагает знак МИНУС перед обобщенным типом данных
+  // контрвариантность означает что ЭКЗЕМПЛЯР класса может иметь РОДИТЕЛЬСКИЙ класс указанного при определении
+  class ContravariantList[-B]
+  val contravariantList : ContravariantList[Apple] = new ContravariantList[Fruit]
+
+
+
+  //------------------Ковариантность(Covariance)
+  // ковариантность предпологает знак ПЛЮС перед обобщенным типом данных
+  // ковариантность означает что ЭКЗЕМПЛЯР класса может иметь ПОДклассы указанного при определении
+  class CovariantList[+C]
+  val covarianttList : CovariantList[Fruit] = new CovariantList[Apple]
+
+
+
+
 
 
 
