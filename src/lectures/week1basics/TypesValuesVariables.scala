@@ -14,15 +14,15 @@ object TypesValuesVariables extends App {
   println(aString)
 
   /* доступные типы*/
-  aString = "Hello" //  присвоение нового значения переменной aString строка
-  val aChar = 'C' // 16 битный символ Unicode
+  val aString : String = "Hello" //  присвоение нового значения переменной aString строка
+  val aChar: Char = 'C' // 16 битный символ Unicode
 
-  val aInt = 11 // целочисленный 32 бита
-  val aLong = 11L // целочисленный 64 бита
-  val aFloat = 2.0f // с плавающей запятой 32 бита
-  val aDouble = 2.0 // с плавающей запятой 64 бита
+  val aInt: Int = 11 // целочисленный 32 бита
+  val aLong: Long = 11L // целочисленный 64 бита
+  val aFloat: Float = 2.0f // с плавающей запятой 32 бита
+  val aDouble: Double = 2.0 // с плавающей запятой 64 бита
 
-  val aBoolean = true // булевы величины
+  val aBoolean: Boolean = true // булевы величины
 
   //================================перечесление типов данных============================================
 

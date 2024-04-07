@@ -28,7 +28,7 @@ object Functions extends App{
 
   // вызвать функцию без параметров можно двумя способами
   aFunctionWithoutParameters() // со скобками
-  aFunctionWithoutParameters   // и без них
+  aFunctionWithoutParameters()   // и без них (уже нет)
 
   //=====================================параметры по умолчанию=======================================
 
